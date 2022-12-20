@@ -1,0 +1,49 @@
+﻿@*@using MyPharmacy.Models.ViewModels;
+@model UpdateProfileVM;*@
+@model ApplicationUser;
+
+
+@{
+    ViewData["Title"] = "Update Profile";
+}
+
+<h1>Update Profile Data</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateProfile">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="SelectedRole" value="Admin" />
+            <input type="hidden" asp-for="FirstPassword" value="admin" />
+            <input type="hidden" asp-for="ConfirmPassword" value="admin" />
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <a class="btn btn-outline-secondary" asp-controller="Account" asp-action="Profile">Back to Profile</a>
+                <input class="btn btn-outline-success" type="submit" value="Update" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
