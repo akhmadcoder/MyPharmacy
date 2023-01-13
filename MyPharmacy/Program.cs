@@ -60,8 +60,8 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 //Seed database
-//AppDbInitializer.Seed(app);
-//AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+AppDbInitializer.SeedAsync(app).Wait();
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 
 app.Run();
